@@ -2,32 +2,48 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-  entry: {
-    common: [],
-    index: [
-      "webpack-dev-server/client?http://localhost:9000",
-      "webpack/hot/only-dev-server",
-      path.resolve("./src/index.js")
-    ]
-  },
+  entry: [
+    'webpack-hot-middleware/client',
+    './src/index'
+  ],
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/'
   },
-  devtool: 'source-map',
+  devtool: 'cheap-module-eval-source-map',
+  // module: {
+  //   loaders: [{
+  //     test: /\.js$/,
+  //     loader: 'babel-loader',
+  //     exclude: /node_modules/,
+  //     query: {
+  //       presets: [
+  //         'babel-preset-es2015-ie',
+  //         'babel-preset-react',
+  //         'babel-preset-stage-0',
+  //       ]
+  //     }
+  //   }, {
+  //     test: /\.css$/, loader: 'style!css?modules&localIdentName=[name]-[local]--[hash:base64:5]'
+  //   }, {
+  //     test: /\.(jpg|png|svg)$/, loader: 'url?limit=8192'
+  //   }]
+  // },
   module: {
-    loaders: [
-      {test: /\.js$/, exclude: /node_modules/, loader: 'babel'},
-      {test: /\.css$/, loader: 'style!css?modules&localIdentName=[name]-[local]--[hash:base64:5]'},
-      {test: /\.(jpg|png|svg)$/, loader: 'url?limit=8192'}
-    ]
+    loaders: [{
+      test: /\.js$/,
+      loaders: ['react-hot-loader', 'babel-loader'],
+      include: path.join(__dirname, 'src')
+    }]
   },
   resolve: {
-    root: path.resolve('./src'),
-    extensions: ['', '.js', "jsx", "png", "jpg", "jpeg"],
+    modules: [path.resolve(__dirname, "src"), 'node_modules'],
+    extensions: ['.js', "jsx", "png", "jpg", "jpeg"]
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
     new webpack.NoErrorsPlugin()
 
   ]
