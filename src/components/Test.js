@@ -6,7 +6,7 @@ export default class Test extends React.Component {
   }
 
   render() {
-    return (<div>MyComponent</div>);
+    return (<div>fooMyComponent</div>);
   }
 }
 
