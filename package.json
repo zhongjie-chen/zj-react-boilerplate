@@ -8,7 +8,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "lint": "eslint --ext .js src",
+    "lint": "eslint –fix --color --ext .js src",
     "build": "cross-env NODE_ENV=production webpack -p --color --progress --config webpack.prod.config.js "
   },
   "dependencies": {
@@ -35,7 +35,10 @@
     "babel-preset-stage-0": "^6.22.0",
     "css-loader": "^0.26.1",
     "eslint": "^3.15.0",
+    "eslint-config-airbnb": "^14.1.0",
     "eslint-loader": "^1.6.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.9.0",
     "express": "^4.14.1",
     "file-loader": "^0.10.0",

@@ -1,8 +1,11 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 
 export default class router extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      hello: 'hi',
+    };
   }
 
   render() {
@@ -11,4 +14,8 @@ export default class router extends React.Component {
 }
 
 router.propTypes = {
+  hi: PropTypes.string,
+};
+router.defaultProps = {
+  hi: 'cnm',
 };
