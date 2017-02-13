@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Test from 'components/Test';
+import { AppContainer } from 'react-hot-loader';
 
 ReactDOM.render(
-  <Test />,
+  <AppContainer>
+    <Test />
+  </AppContainer>,
   document.getElementById('root'),
 );
 // import { add } from 'utils/calculator';

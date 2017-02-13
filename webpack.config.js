@@ -55,16 +55,18 @@ module.exports = {
     //   exclude: /node_modules/,
     //   loader: 'eslint-loader'
     // }],
-    loaders: [{
-      test: /\.js$/,
-      loaders: [
-        'react-hot-loader',
-        'babel-loader',
-        'eslint-loader'
-      ],
-      exclude: /node_modules/,
-      include: path.join(__dirname, 'src')
-    }]
+    rules: [
+      {
+        test: /\.js$/,
+        use: [
+          'react-hot-loader',
+          'babel-loader',
+          'eslint-loader'
+        ],
+        exclude: /node_modules/,
+        include: path.join(__dirname, 'src')
+      }
+    ],
   },
   resolve: {
     modules: [path.resolve(__dirname, "src"), 'node_modules'],
