@@ -6,3 +6,6 @@ ReactDOM.render(
   <Test />,
   document.getElementById('root'),
 );
+// import { add } from 'utils/calculator';
+
+// document.getElementById('root').innerHTML = add(4, 3);

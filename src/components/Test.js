@@ -1,15 +1,18 @@
+/*
+  global DEVELOPMENT
+*/
 import React, { PropTypes } from 'react';
 
 export default class Test extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hello: 'hi',
+      hello: '123',
     };
   }
 
   render() {
-    return (<div>fooMyComponent11</div>);
+    return (<div>2221oMyCompone11{this.state.hello}</div>);
   }
 }
 
